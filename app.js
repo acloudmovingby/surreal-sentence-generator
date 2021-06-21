@@ -198,6 +198,13 @@ app.get("/", function (req, res) {
   });
 });
 
+app.get("/api/normal", function (req, res) {
+  res.json({type: 'normal', sentence: normalSentence(words)});
+});
+
+app.get("/api/surreal", function (req, res) {
+  res.json({type: 'surreal', sentence: surrealSentence(words)});
+});
 
 app.get("/surreal", function (req, res) {
     res.render("index", {
