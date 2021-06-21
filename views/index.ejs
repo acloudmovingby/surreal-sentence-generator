@@ -10,19 +10,24 @@
     <title>Random Sentence Generator</title>
   </head>
   <body>
-    <div class="flex">
-      <div class="sentence-container">
-        <h2 class="sentence">"<%= sentence %>"</h2>
-      </div>
-      
-      <div class="btn-flex">
-        <a href="/">
-          <button type="button" class="btn">New Sentence</button>
-        </a>
-        <a href="/surreal">
-          <button type="button" class="btn btn-surreal">SuRrEal Sentence</button>
-        </a>
+    <div class="container">
+      <div class="flex">
+        <h1 class="title">Surreal Sentence Generator</h1>
+        <div class="sentence-container">
+          <h3 class="sentence">"<%= sentence %>"</h3>
+        </div>
+        
+        <div class="btn-flex">
+          <a href="/">
+            <button type="button" class="btn">New Sentence</button>
+          </a>
+          <a href="/surreal">
+            <button type="button" class="btn btn-surreal">SuRrEal Sentence</button>
+          </a>
+          <p>This website can generate a "normal" sentence where it chooses subject/verb/objects that could theoretically work together. A "surreal" sentence is a sentence where these are logically impossible (e.g. a pizza can't talk).</p>
+        </div>
       </div>
     </div>
+    
   </body>
 </html>

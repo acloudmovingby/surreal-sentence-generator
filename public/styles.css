@@ -8,11 +8,21 @@
 	height: 100%;
 }
 
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .flex {
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 500px;
+    width: 500px;
+}
+
+.title {
+    font-family: 'Viaoda Libre', cursive;
 }
 
 .sentence-container {
@@ -20,9 +30,9 @@
     justify-content: center;
     height: 200px;
 }
+
 .sentence {
     text-align: center;
-    font-family: 'Viaoda Libre', cursive;
     margin: 4rem 1rem;
 }
 
