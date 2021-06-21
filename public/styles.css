@@ -1,6 +1,6 @@
 :root, body {
 	box-sizing: border-box;
-    background-color: rgb(128, 166, 191);
+    background-color: rgb(110, 148, 173);
     color: white;
 	margin: 0;
 	padding: 0;
@@ -28,7 +28,7 @@
 .sentence-container {
     display:flex;
     justify-content: center;
-    height: 200px;
+    height: 150px;
 }
 
 .sentence {

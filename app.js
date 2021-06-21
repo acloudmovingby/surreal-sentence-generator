@@ -5,39 +5,6 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded());
 app.use(express.static("public"));
 
-const nouns = [
-  "knave",
-  "clown",
-  "duck",
-  "wizard",
-  "clerk",
-  "cowboy",
-  "doctor",
-  "druid",
-  "shaman",
-];
-const adjectives = [
-  "worthless",
-  "mad",
-  "dashing",
-  "itchy",
-  "pious",
-  "glistening",
-  "no-good",
-  "broken",
-  "esteemed",
-  "academically-inclined",
-  "salt-of-the-earth",
-];
-const verbs = [
-  "saw",
-  "had faith in",
-  "understood",
-  "cooked",
-  "was jealous of",
-  "worked tirelessly for",
-];
-
 const words = [
   {
     value: "wizard",
