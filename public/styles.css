@@ -1,5 +1,7 @@
 :root, body {
 	box-sizing: border-box;
+    background-color: rgb(128, 166, 191);
+    color: white;
 	margin: 0;
 	padding: 0;
 	width: 100%;
@@ -8,23 +10,47 @@
 
 .flex {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 500px;
 }
 
-.generate-btn {
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    font-weight: 700;
-    background-color: blue;
-    border-radius: 8px;
-    
+.sentence-container {
+    display:flex;
+    justify-content: center;
+    height: 200px;
+}
+.sentence {
+    text-align: center;
+    font-family: 'Viaoda Libre', cursive;
+    margin: 4rem 1rem;
 }
 
-.generate-btn:hover {
-    background-color: cornflowerblue;
+.btn-flex {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn {
+    color: white;
+    border: none;
+    padding: 0.7rem 1rem;
+    margin: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background-color:rgb(255, 128, 89);
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px grey;
+}
+
+.btn:hover {
+    background-color: rgb(255, 165, 138);
+}
+
+.btn-surreal{
+    color: rgb(255, 128, 89);
+    background-color:white;
+    border-color: rgb(255, 128, 89);
+    
 }

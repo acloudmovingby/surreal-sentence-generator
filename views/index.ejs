@@ -4,15 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet" />
     <title>Random Sentence Generator</title>
   </head>
   <body>
     <div class="flex">
-      <h1>"<%= sentence %>"</h1>
-      <a href="/">
-        <button type="button" class="generate-btn">Generate</button>
-      </a>
+      <div class="sentence-container">
+        <h2 class="sentence">"<%= sentence %>"</h2>
+      </div>
+      
+      <div class="btn-flex">
+        <a href="/">
+          <button type="button" class="btn">New Sentence</button>
+        </a>
+        <a href="/surreal">
+          <button type="button" class="btn btn-surreal">SuRrEal Sentence</button>
+        </a>
+      </div>
     </div>
   </body>
 </html>
