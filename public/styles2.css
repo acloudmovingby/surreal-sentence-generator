@@ -46,12 +46,13 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(201, 201, 201);
+  background-color: rgb(63, 63, 63);
 }
 
 .gen-btn-text {
   display: inline;
   padding: 0rem 1rem;
+  color: white;
 }
 
 
@@ -82,7 +83,20 @@ nav {
 }
 
 .text-container {
-  padding: 0rem 1rem;
+  padding: 1rem 1rem;
+}
+
+.endpoint-container {
+  background-color:rgb(220, 220, 220);
+  overflow-x:scroll;
+  
+}
+
+.endpoint {
+  width: 150%;
+  color: rgb(63, 63, 63);
+  padding:1rem;
+  margin: 0;
 }
 
 @media screen and (min-width: 800px) {
