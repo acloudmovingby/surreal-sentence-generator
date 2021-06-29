@@ -66,13 +66,9 @@ nav {
   padding: 1rem;
 }
 
-
-a {
-  text-decoration: none;
-}
-
 .nav-item > a {
   color: white;
+  text-decoration: none;
 }
 .nav-item {
   padding: 0rem 1rem;
