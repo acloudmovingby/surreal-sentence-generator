@@ -1,4 +1,4 @@
-const {words} = require('./words');
+const { words } = require("./words");
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -11,25 +11,19 @@ app.use(express.static("public"));
 app.get("/", function (req, res) {
   res.render("index", {
     sentence: normalSentence(words),
-    checked: ""
+    checked: "",
   });
 });
 
-app.post("/", function (req,res) {
+app.post("/", function (req, res) {
   let wantsSurreal = req.body.surrealcheckbox;
-  console.log(`req.body is ${req.body} and wantsSurreal is ${wantsSurreal}`);
-  if (wantsSurreal) {
-    res.render("index", {
-      sentence: surrealSentence(words),
-      checked: "checked"
-    });
-  } else {
-    res.render("index", {
-      sentence: normalSentence(words),
-      checked: ""
-    });
-  }
+  let sentence = wantsSurreal ? surrealSentence(words) : normalSentence(words);
+  let checked = wantsSurreal ? "checked" : ""; // represents whether the surreal checkbox defaults to checked or not
   
+  res.render("index", {
+    sentence: sentence,
+    checked: checked,
+  });
 });
 
 app.get("/api/normal", function (req, res) {

@@ -46,7 +46,12 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(63, 63, 63);
+  background-color: #216fed;
+  border: none;
+}
+
+.gen-btn:hover {
+  background-color: #1556bf;
 }
 
 .gen-btn-text {
