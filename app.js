@@ -9,18 +9,27 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", function (req, res) {
-  res.render("index", {
+  res.render("index2", {
     sentence: normalSentence(words),
-    adj: "sup",
-    subj: "hey",
-    verb: "yo",
-    obj: "awesome"
+    checked: ""
   });
 });
 
 app.post("/", function (req,res) {
-  console.log(req.body);
-  res.redirect("/");
+  let wantsSurreal = req.body.surrealcheckbox;
+  console.log(`req.body is ${req.body} and wantsSurreal is ${wantsSurreal}`);
+  if (wantsSurreal) {
+    res.render("index2", {
+      sentence: surrealSentence(words),
+      checked: "checked"
+    });
+  } else {
+    res.render("index2", {
+      sentence: normalSentence(words),
+      checked: ""
+    });
+  }
+  
 });
 
 app.get("/api/normal", function (req, res) {
@@ -29,16 +38,6 @@ app.get("/api/normal", function (req, res) {
 
 app.get("/api/surreal", function (req, res) {
   res.json({ type: "surreal", sentence: surrealSentence(words) });
-});
-
-app.get("/surreal", function (req, res) {
-  res.render("index", {
-    sentence: surrealSentence(words),
-    adj: "sup",
-    subj: "hey",
-    verb: "yo",
-    obj: "awesome"
-  });
 });
 
 app.listen(process.env.PORT || "3000", function () {
@@ -110,17 +109,6 @@ function getObj(verb, words) {
   }
 }
 
-function addAn(nounPhrase) {
-  let vowels = ["a", "e", "i", "o", "u"];
-  let firstLetter = nounPhrase.charAt(0);
-
-  if (vowels.includes(firstLetter)) {
-    return "an " + nounPhrase;
-  } else {
-    return "a " + nounPhrase;
-  }
-}
-
 // randomly choose an adjective that is NOT supposed go with that noun (i.e. doesn't contain that noun in its list of acceptable nouns).
 function generateSurrealAdjective(noun, words) {
   let adjs = words.filter(
@@ -142,5 +130,16 @@ function generateSurrealVerb(noun, words) {
     return "";
   } else {
     return verbs[Math.floor(Math.random() * verbs.length)].value;
+  }
+}
+
+function addAn(nounPhrase) {
+  let vowels = ["a", "e", "i", "o", "u"];
+  let firstLetter = nounPhrase.charAt(0);
+
+  if (vowels.includes(firstLetter)) {
+    return "an " + nounPhrase;
+  } else {
+    return "a " + nounPhrase;
   }
 }

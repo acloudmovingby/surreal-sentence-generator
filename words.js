@@ -6,7 +6,6 @@ const words = [
       "tossed",
       "cooked",
       "saw",
-      "made friends with",
       "went caroling with",
       "waddled over to",
     ],
@@ -18,7 +17,6 @@ const words = [
       "tossed",
       "cooked",
       "saw",
-      "made friends with",
       "went caroling with",
       "waddled over to",
     ],
@@ -30,7 +28,6 @@ const words = [
       "tossed",
       "cooked",
       "saw",
-      "made friends with",
       "went caroling with",
       "harmonized with",
     ],
@@ -38,7 +35,22 @@ const words = [
   {
     value: "cheeseburger",
     type: "noun",
-    verbs: [],
+    verbs: ["looked very tasty to"],
+  },
+  {
+    value: "looked very tasty to",
+    type: "verb",
+    objs: [
+      "wizard",
+      "programmer",
+      "friend",
+      "knave",
+      "cowboy",
+      "doctor",
+      "clerk",
+      "doctor",
+      "shaman",
+    ],
   },
   {
     value: "tasty",
@@ -89,10 +101,10 @@ const words = [
   {
     value: "tossed",
     type: "verb",
-    objs: ["cheeseburger", "friend", "apple"],
+    objs: ["apple", "ball"],
   },
   {
-    value: "made friends with",
+    value: "met",
     type: "verb",
     objs: [
       "wizard",
@@ -120,7 +132,6 @@ const words = [
       "tossed",
       "cooked",
       "saw",
-      "made friends with",
       "went caroling with",
       "was jealous of",
       "harmonized with",
@@ -170,7 +181,6 @@ const words = [
       "tossed",
       "cooked",
       "saw",
-      "made friends with",
       "went caroling with",
       "was jealous of",
       "harmonized with",
@@ -183,7 +193,6 @@ const words = [
       "tossed",
       "cooked",
       "saw",
-      "made friends with",
       "went caroling with",
       "was jealous of",
       "harmonized with",
@@ -238,7 +247,45 @@ const words = [
     objs: [],
   },
   {
+    value: "rectangular",
+    type: "adjective",
+    objs: [],
+  },
+  {
+    value: "colossal",
+    type: "adjective",
+    objs: [],
+  },
+  {
+    value: "infinite",
+    type: "adjective",
+    objs: [],
+  },
+  {
+    value: "up-and-coming",
+    type: "adjective",
+    objs: [
+      "wizard",
+      "programmer",
+      "friend",
+      "doctor",
+      "clerk",
+      "shaman",
+      "doctor",
+    ],
+  },
+  {
+    value: "liquid",
+    type: "adjective",
+    objs: [],
+  },
+  {
     value: "disintegrated",
+    type: "verb",
+    objs: [],
+  },
+  {
+    value: "evaporated into",
     type: "verb",
     objs: [],
   },
@@ -328,4 +375,4 @@ const words = [
   },
 ];
 
-module.exports = {words};
+module.exports = { words };
