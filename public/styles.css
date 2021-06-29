@@ -1,132 +1,117 @@
-:root, body {
-	box-sizing: border-box;
-    background-color: rgb(110, 148, 173);
-    color: white;
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	height: 100%;
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    
+p {
+  margin: 0;
+  padding: 0;
 }
 
-.flex {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 0rem 1rem;
-    
+.nav-background-bar {
+  background-color:#7c7c7c;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-.title {
-    font-family: 'Viaoda Libre', cursive;
-    margin: 2rem 0rem;
-    font-size: 1.5rem;
+nav {
+  height: 45px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.container{
+  display:flex;
+  justify-content: center;
+}
+
+.vert-flex {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.5rem 1.5rem;
+  background-color: #ECECEC;
+  border-radius: 7px;
+}
+
+.gen-btn {
+  width: 80%;
+  margin: 2rem 0rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(63, 63, 63);
+}
+
+.gen-btn-text {
+  display: inline;
+  padding: 0rem 1rem;
+  color: white;
 }
 
 
-
-.sentence-container {
-    display:flex;
-    justify-content: center;
-    height: 100px;
-    width: 100%;
-    background-color: white;
-    border-radius: 5px;
-    color:rgb(5, 22, 85);
-    margin: 1rem 0rem 1rem 0rem;
+.text-area {
+  background-color: white;
+  width:80%;
+  height: 300px;
+  margin: 2rem 0rem;
 }
 
 .sentence {
-    text-align: center;
-    
+  padding: 1rem;
 }
 
-.btn-flex {
-    display:flex;
-    align-items: center;
-    
+.nav-item > a {
+  color: white;
+  text-decoration: none;
 }
-.text {
-    margin: 0;
-}
-
-.btn {
-    color: white;
-    border: none;
-    padding: 0.7rem 1rem;
-    margin: 0.5rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    background-color:rgb(255, 128, 89);
-    border-radius: 20px;
-    box-shadow: 2px 2px 5px grey;
-    
+.nav-item {
+  padding: 0rem 1rem;
+  text-transform: uppercase;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: lighter;
 }
 
-.btn:hover {
-    background-color: rgb(255, 165, 138);
-    
+.paragraph {
+  padding:1rem 0rem;
 }
 
-.btn-surreal{
-    color: rgb(255, 128, 89);
-    background-color:white;
-    border-color: rgb(255, 128, 89);
-    
-}
-
-.subtitle {
-    align-self: flex-start;
-    margin: 2rem 0rem 1rem 0rem;
-    
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+.text-container {
+  padding: 1rem 1rem;
 }
 
 .endpoint-container {
-    background-color:rgb(220, 220, 220);
-    overflow-x:scroll;
-    
+  background-color:rgb(220, 220, 220);
+  overflow-x:scroll;
+  
 }
 
 .endpoint {
-    width: 150%;
-    color: rgb(63, 63, 63);
-    padding:1rem;
-    margin: 0;
-    
+  width: 150%;
+  color: rgb(63, 63, 63);
+  padding:1rem;
+  margin: 0;
 }
 
-.divider {
-    height: 50px;
+@media screen and (min-width: 800px) {
+  nav {
+    width: 800px;
+  }
+
+  .text-container {
+    width: 800px;
+  }
+  
 }
 
-.link-button {
-    background: none;
-    border: none;
-    color: blue;
-    text-decoration: underline;
-    cursor: pointer;
-    font-size: 1em;
-    font-family: serif;
+@media screen and (min-width: 500px) {
+  .vert-flex {
+    width: 500px;
   }
-  .link-button:focus {
-    outline: none;
-  }
-  .link-button:active {
-    color:red;
-  }
-
-@media screen and (min-width: 600px) {
-    .flex {
-        width: 550px;
-    }
-    .title {
-        font-size: 2rem;
-    }
 }

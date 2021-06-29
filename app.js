@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", function (req, res) {
-  res.render("index2", {
+  res.render("index", {
     sentence: normalSentence(words),
     checked: ""
   });
@@ -19,12 +19,12 @@ app.post("/", function (req,res) {
   let wantsSurreal = req.body.surrealcheckbox;
   console.log(`req.body is ${req.body} and wantsSurreal is ${wantsSurreal}`);
   if (wantsSurreal) {
-    res.render("index2", {
+    res.render("index", {
       sentence: surrealSentence(words),
       checked: "checked"
     });
   } else {
-    res.render("index2", {
+    res.render("index", {
       sentence: normalSentence(words),
       checked: ""
     });
