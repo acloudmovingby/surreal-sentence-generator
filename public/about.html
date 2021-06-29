@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles2.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="nav-background-bar">
+      <nav>
+        <h5 class="nav-item"><a href="new-design.html">Home</a></h5>
+        <h5 class="nav-item"><a href="#">API</a></h5>
+        <h5 class="nav-item"><a href="#">About</a></h5>
+      </nav>
+    </div>
+    <div class="container">
+      <div class="text-container">
+        <h2>What does this site do?</h2>
+        <p class="paragraph">
+          This site generates random sentences of two types:
+          <em>surreal</em> and <em>normal</em>.
+        </p>
+        <p class="paragraph">
+          Surreal sentences are logically impossible sentences; the words in the
+          sentence, according to their typical definition, don't make sense
+          together (e.g. "The pizza giggled out loud."")
+        </p>
+        <p class="paragraph">
+          Normal sentences, of course, are the opposite. They (theoretically)
+          make sense.
+        </p>
+        <h2>"Language" stuff is weird. Talk math to me.</h2>
+        <p class="paragraph">
+          Sure! Each word in the sentence is like a node in a graph. The node's
+          outgoing edges connect to other words that are logically possible. For
+          example, "clever" might point to "doctor" but not to "cheeseburger."
+        </p>
+        <p class="paragraph">
+          To make a normal sentence, you traverse the graph only along those
+          edges. To make a surreal sentence, you traverse the
+          <a href="https://en.wikipedia.org/wiki/Complement_graph"
+            >complement</a
+          >
+          of that graph.
+        </p>
+        <p class="paragraph">
+          This is just a toy site so the sentences are very simple and the
+          vocabulary set is small, but in theory you could build a richer and
+          more expressive language generators using similar principles. More
+          sophisticated adjustments might mean weighting edges or even adding
+          broader context weighting (e.g. if the doctor is "angry", then make
+          there should be a higher likelihood of the verb being "yell").
+        </p>
+        <h2>What did you use to make this?</h2>
+        <p class="paragraph">I used the following technologies:</p>
+        <ul>
+          <li>UI design in Figma</li>
+          <li>Website all in HTML/CSS, no JS</li>
+          <li>
+            Tested endpoints with Postman (let me know if they don't work!)
+          </li>
+          <li>Hosted on Heroku</li>
+          <li>Words stored in MongoDB backend through Atlas.</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
