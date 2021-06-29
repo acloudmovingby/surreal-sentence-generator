@@ -243,6 +243,11 @@ const words = [
     objs: [],
   },
   {
+    value: "melted into",
+    type: "verb",
+    objs: [],
+  },
+  {
     value: "harmonized with",
     type: "verb",
     objs: [

@@ -11,7 +11,16 @@ app.use(express.static("public"));
 app.get("/", function (req, res) {
   res.render("index", {
     sentence: normalSentence(words),
+    adj: "sup",
+    subj: "hey",
+    verb: "yo",
+    obj: "awesome"
   });
+});
+
+app.post("/", function (req,res) {
+  console.log(req.body);
+  res.redirect("/");
 });
 
 app.get("/api/normal", function (req, res) {
@@ -25,6 +34,10 @@ app.get("/api/surreal", function (req, res) {
 app.get("/surreal", function (req, res) {
   res.render("index", {
     sentence: surrealSentence(words),
+    adj: "sup",
+    subj: "hey",
+    verb: "yo",
+    obj: "awesome"
   });
 });
 
