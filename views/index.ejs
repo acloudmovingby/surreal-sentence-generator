@@ -3,44 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet" />
-    <title>Random Sentence Generator</title>
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
   </head>
   <body>
-    <div class="container">
-      <div class="flex">
-        <h1 class="title">Surreal Sentence Generator</h1>
-        <div class="sentence-container">
-          <h3 class="sentence">"<%= sentence %>"</h3>
-        </div>
-        
-        <div class="btn-flex">
-          <a href="/">
-            <button type="button" class="btn">New Sentence</button>
-          </a>
-          <a href="/surreal">
-            <button type="button" class="btn btn-surreal">SuRrEal Sentence</button>
-          </a>
-          
-        </div>
-        <form method="post" action="/">
-          <button type="submit" name="submit_sentence" value="<%= subj %>" class="link-button">
-            Sentence NOT surreal enough?
-          </button>
-        </form>
-        <div class="divider"></div>
-        <h4 class="subtitle">API Endpoints</h4>
-        <div class="endpoint-container">
-          <p class="text endpoint">GET surreal-sentence-generator.herokuapp.com/api/normal<br>GET surreal-sentence-generator.herokuapp.com/api/surreal</p>
-
-        </div>
-        <h4 class="subtitle">About</h4>
-        <p class="text">This website can generate a "normal" sentence where it chooses subject/verb/objects that could theoretically work together. A "surreal" sentence is a sentence where these are logically impossible (e.g. a pizza can't talk).</p>
-      </div>
+    <div class="nav-background-bar">
+      <nav>
+        <h5 class="nav-item"><a href="#">Home</a></h5>
+        <h5 class="nav-item"><a href="api.html">API</a></h5>
+        <h5 class="nav-item"><a href="about.html">About</a></h5>
+      </nav>
     </div>
-    
+    <div class="container">
+      
+        <form class="vert-flex" method="post" action="/">
+          <button class="gen-btn">
+            <h2 class="gen-btn-text">GENERATE</h2>
+            <img src="ci_refresh-02.svg" />
+          </button>
+          <div>
+            <input type="checkbox" id="surreal" name="surrealcheckbox" <%= checked %>/>
+            <label class="surreal" for="surreal">SuRreAl</label>
+          </div>
+          <div class="text-area">
+            <p class="sentence"> <%= sentence %> </p>
+          </div>
+        </form>
+    </div>
   </body>
 </html>
