@@ -327,7 +327,7 @@ const wrds = [
     ],
   },
   {
-    value: "flirty",
+    value: "haughty",
     type: "adjective",
     goesWith: [
       "wizard",

@@ -24,68 +24,51 @@ const Word = mongoose.model("Word", wordSchema);
 /** Set default words. These are global variables (yikes!) */
 const { wrds } = require("./words");
 const defaultWords = wrds.map((x) => new Word(x)); // Originally I wrote words as JS objects and this converst them to Mongoose Models
-let words = defaultWords;
-
-function findWords() {
-  Word.find({}, function (err, docs) {
-    if (err) {
-      console.log(err);
-    } else {
-      return docs;
-    }
-  });
-}
+let wordsFromDB = undefined; // Remains undefined until fetched from db
 
 function getWords() {
-  console.log("words found: " + findWords());
-  console.log(
-    "getWords called. defaultWords length is: " + defaultWords.length
-  );
-  return defaultWords;
-  let ret = defaultWords;
-  Word.find({}, async function (err, dbWords) {
+  console.log("getWords called and wordsFromDB is " + wordsFromDB?.length);
+  
+  Word.find(async function (err, docs) {
     if (err) {
       console.log(err);
-      console.log("Return on error.");
-      return defaultWords;
     } else {
-      if (dbWords.length === 0) {
-        console.log("No words found in database.");
-        await Word.insertMany(defaultWords, function (err, docs) {
+      if (docs.length === 0) {
+        await Word.insertMany(defaultWords, function (err) {
           if (err) {
             console.log(err);
           } else {
             console.log("Default words successfully inserted.");
-            return docs;
           }
         });
-        return dbWords;
       }
-      console.log("Number of words in database: " + dbWords.length);
-      console.log("Return after insert?");
-      ret = dbWords;
+      console.log("docs length is " + docs.length);
+      wordsFromDB = docs;
     }
+    wordsFromDB = docs;
   });
-  return ret;
+
+  // first checks to see if words have been fetched from DB. For reasons I don't know, sometimes the async function returns undefined, sometimes it returns length 0, so I check both cases and just return defaultWords if that happens.
+  if (!wordsFromDB || wordsFromDB.length === 0) {
+    console.log("Returning default words now.");
+    return defaultWords;
+  } else {
+    // if the words have already been fetched from the database. These may not be up to date with the db, as the find function above can take a second and doesn't change wordsFromDB until after this function has returned (!).
+    console.log("Actually using database words now.");
+    return wordsFromDB;
+  }
+  console.log("I guess neither return actualy returned...");
 }
 
 app.get("/", function (req, res) {
-  console.log("getWords length is totes: " + getWords().length);
-  let words = getWords();
-  console.log("Words length is definitely: " + words.length);
-  res.render("index", {
-    sentence: normalSentence(words),
-    checked: "",
-  });
+  res.render("index", { sentence: normalSentence(getWords()), checked: "" });
 });
 
 app.post("/", function (req, res) {
-  let words = getWords();
-
   let wantsSurreal = req.body.surrealcheckbox;
+  let words = getWords();
   let sentence = wantsSurreal ? surrealSentence(words) : normalSentence(words);
   let checked = wantsSurreal ? "checked" : ""; // represents whether the surreal checkbox defaults to checked or not
-
   res.render("index", {
     sentence: sentence,
     checked: checked,
@@ -105,8 +88,8 @@ app.listen(process.env.PORT || "3000", function () {
 });
 
 function surrealSentence(words) {
-  if (!words) {
-    return "Data invalid :("; // makes sure that if words is undefined/null, then this passes that on rather than causing an error in this function
+  if (!words || words.length === 0) {
+    return "Click the GENERATE button to make a new sentence. Toggle the checkbox to make the sentence surreal."; // makes sure that if words is undefined/null, then this passes that on rather than causing an error in this function
   }
   let nouns = words.filter((x) => x.type === "noun");
   let subj = nouns[Math.floor(Math.random() * nouns.length)].value;
@@ -120,7 +103,7 @@ function surrealSentence(words) {
 function normalSentence(words) {
   let subj = generateSubject(words);
   if (typeof subj === "undefined") {
-    return "Data invalid :(";
+    return "Click the GENERATE button to make a new sentence. Toggle the checkbox to make the sentence surreal.";
   }
 
   let adj = getAdj(subj, words);
