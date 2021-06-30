@@ -2,7 +2,7 @@ const words = [
   {
     value: "wizard",
     type: "noun",
-    verbs: [
+    goesWith: [
       "tossed",
       "cooked",
       "saw",
@@ -13,7 +13,7 @@ const words = [
   {
     value: "shaman",
     type: "noun",
-    verbs: [
+    goesWith: [
       "tossed",
       "cooked",
       "saw",
@@ -24,7 +24,7 @@ const words = [
   {
     value: "programmer",
     type: "noun",
-    verbs: [
+    goesWith: [
       "tossed",
       "cooked",
       "saw",
@@ -35,12 +35,12 @@ const words = [
   {
     value: "cheeseburger",
     type: "noun",
-    verbs: ["looked very tasty to"],
+    goesWith: ["looked very tasty to"],
   },
   {
     value: "looked very tasty to",
     type: "verb",
-    objs: [
+    goesWith: [
       "wizard",
       "programmer",
       "friend",
@@ -55,12 +55,12 @@ const words = [
   {
     value: "tasty",
     type: "adjective",
-    nouns: ["cheeseburger", "apple"],
+    goesWith: ["cheeseburger", "apple"],
   },
   {
     value: "cheerful",
     type: "adjective",
-    nouns: [
+    goesWith: [
       "wizard",
       "programmer",
       "friend",
@@ -75,7 +75,7 @@ const words = [
   {
     value: "salt-of-the-earth",
     type: "adjective",
-    nouns: [
+    goesWith: [
       "wizard",
       "programmer",
       "friend",
@@ -90,23 +90,23 @@ const words = [
   {
     value: "cooked",
     type: "verb",
-    objs: ["cheeseburger", "apple"],
+    goesWith: ["cheeseburger", "apple"],
   },
   {
     value: "saw",
     type: "verb",
-    objs: ["cheeseburger", "wizard", "programmer", "friend", "duck", "knave"],
+    goesWith: ["cheeseburger", "wizard", "programmer", "friend", "duck", "knave"],
   },
   //
   {
     value: "tossed",
     type: "verb",
-    objs: ["apple", "ball"],
+    goesWith: ["apple", "ball"],
   },
   {
     value: "met",
     type: "verb",
-    objs: [
+    goesWith: [
       "wizard",
       "programmer",
       "friend",
@@ -119,7 +119,7 @@ const words = [
   {
     value: "friend",
     type: "noun",
-    verbs: ["tossed", "cooked", "saw"],
+    goesWith: ["tossed", "cooked", "saw"],
   },
   {
     value: "apple",
@@ -128,7 +128,7 @@ const words = [
   {
     value: "clerk",
     type: "noun",
-    verbs: [
+    goesWith: [
       "tossed",
       "cooked",
       "saw",
@@ -140,12 +140,12 @@ const words = [
   {
     value: "duck",
     type: "noun",
-    verbs: ["saw", "waddled over to"],
+    goesWith: ["saw", "waddled over to"],
   },
   {
     value: "no-nonsense",
     type: "adjective",
-    nouns: [
+    goesWith: [
       "wizard",
       "programmer",
       "friend",
@@ -161,7 +161,7 @@ const words = [
   {
     value: "nimble",
     type: "adjective",
-    nouns: [
+    goesWith: [
       "wizard",
       "programmer",
       "friend",
@@ -177,7 +177,7 @@ const words = [
   {
     value: "doctor",
     type: "noun",
-    verbs: [
+    goesWith: [
       "tossed",
       "cooked",
       "saw",
@@ -189,7 +189,7 @@ const words = [
   {
     value: "cowboy",
     type: "noun",
-    verbs: [
+    goesWith: [
       "tossed",
       "cooked",
       "saw",
@@ -201,7 +201,7 @@ const words = [
   {
     value: "went caroling with",
     type: "verb",
-    objs: [
+    goesWith: [
       "wizard",
       "programmer",
       "friend",
@@ -215,7 +215,7 @@ const words = [
   {
     value: "was jealous of",
     type: "verb",
-    objs: [
+    goesWith: [
       "wizard",
       "programmer",
       "friend",
@@ -229,7 +229,7 @@ const words = [
   {
     value: "waddled over to",
     type: "verb",
-    objs: [
+    goesWith: [
       "cheeseburger",
       "wizard",
       "programmer",
@@ -244,27 +244,27 @@ const words = [
   {
     value: "iridescent",
     type: "adjective",
-    objs: [],
+    goesWith: [],
   },
   {
     value: "rectangular",
     type: "adjective",
-    objs: [],
+    goesWith: [],
   },
   {
     value: "colossal",
     type: "adjective",
-    objs: [],
+    goesWith: [],
   },
   {
     value: "infinite",
     type: "adjective",
-    objs: [],
+    goesWith: [],
   },
   {
     value: "up-and-coming",
     type: "adjective",
-    objs: [
+    goesWith: [
       "wizard",
       "programmer",
       "friend",
@@ -277,27 +277,27 @@ const words = [
   {
     value: "liquid",
     type: "adjective",
-    objs: [],
+    goesWith: [],
   },
   {
     value: "disintegrated",
     type: "verb",
-    objs: [],
+    goesWith: [],
   },
   {
     value: "evaporated into",
     type: "verb",
-    objs: [],
+    goesWith: [],
   },
   {
     value: "melted into",
     type: "verb",
-    objs: [],
+    goesWith: [],
   },
   {
     value: "harmonized with",
     type: "verb",
-    objs: [
+    goesWith: [
       "wizard",
       "programmer",
       "friend",
@@ -311,7 +311,7 @@ const words = [
   {
     value: "broke",
     type: "adjective",
-    nouns: [
+    goesWith: [
       "wizard",
       "programmer",
       "friend",
@@ -326,7 +326,7 @@ const words = [
   {
     value: "flirty",
     type: "adjective",
-    nouns: [
+    goesWith: [
       "wizard",
       "programmer",
       "friend",
@@ -341,7 +341,7 @@ const words = [
   {
     value: "capable",
     type: "adjective",
-    nouns: [
+    goesWith: [
       "wizard",
       "programmer",
       "friend",
@@ -356,12 +356,12 @@ const words = [
   {
     value: "greasy",
     type: "adjective",
-    nouns: ["cheeseburger"],
+    goesWith: ["cheeseburger"],
   },
   {
     value: "gallant",
     type: "adjective",
-    nouns: [
+    goesWith: [
       "wizard",
       "programmer",
       "friend",

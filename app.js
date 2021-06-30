@@ -5,8 +5,18 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/surreal-app', {useNewUrlParser: true,
-useUnifiedTopology: true,});
+/** DATABASE */
+mongoose.connect("mongodb://localhost:27017/surreal-app", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+ 
+const wordSchema = new Schema({
+  value: String,
+  type: String,
+  goesWith: [String], // which words does this word go with? If type is adj, then this array has nouns; if type is noun, array has verbs it can be subject of; if type is verb, array has nouns that can be objects of this verb
+});
+
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
@@ -23,7 +33,7 @@ app.post("/", function (req, res) {
   let wantsSurreal = req.body.surrealcheckbox;
   let sentence = wantsSurreal ? surrealSentence(words) : normalSentence(words);
   let checked = wantsSurreal ? "checked" : ""; // represents whether the surreal checkbox defaults to checked or not
-  
+
   res.render("index", {
     sentence: sentence,
     checked: checked,
@@ -67,7 +77,7 @@ function normalSentence(words) {
 
 // creates the subject of the sentence but returns undefined if there are no nouns or if no nouns can be subjects of verbs
 function generateSubject(words) {
-  let nouns = words.filter((x) => x.type === "noun" && x.verbs?.length > 0);
+  let nouns = words.filter((x) => x.type === "noun" && x.goesWith?.length > 0);
   if (nouns.length === 0) {
     return undefined;
   } else {
@@ -78,7 +88,7 @@ function generateSubject(words) {
 // returns a normal sounding adjective for that noun, or "" if it can't find one.
 function getAdj(noun, words) {
   let adjs = words.filter(
-    (x) => x.type === "adjective" && x.nouns?.includes(noun)
+    (x) => x.type === "adjective" && x.goesWith?.includes(noun)
   );
   if (adjs.length === 0) {
     return "";
@@ -89,7 +99,7 @@ function getAdj(noun, words) {
 
 // returns a normal sounding verb for that noun, or "" if it can't find one.
 function getVerb(noun, words) {
-  const verbs = words.find((x) => x.value === noun)?.verbs;
+  const verbs = words.find((x) => x.value === noun)?.goesWith;
   if (typeof verbs === "undefined") {
     return "";
   } else {
@@ -99,7 +109,7 @@ function getVerb(noun, words) {
 
 function getObj(verb, words) {
   let verbObj = words.find((x) => x.value === verb);
-  let objs = verbObj?.objs;
+  let objs = verbObj?.goesWith;
   if (typeof objs === "undefined") {
     return "";
   } else {
@@ -110,7 +120,7 @@ function getObj(verb, words) {
 // randomly choose an adjective that is NOT supposed go with that noun (i.e. doesn't contain that noun in its list of acceptable nouns).
 function generateSurrealAdjective(noun, words) {
   let adjs = words.filter(
-    (x) => x.type === "adjective" && !x.nouns?.includes(noun)
+    (x) => x.type === "adjective" && !x.goesWith?.includes(noun)
   ); // notice the !
   if (adjs.length === 0) {
     return "";
@@ -122,7 +132,7 @@ function generateSurrealAdjective(noun, words) {
 function generateSurrealVerb(noun, words) {
   let nounData = words.find((x) => x.value === noun);
   let verbs = words.filter(
-    (x) => x.type === "verb" && !nounData.verbs?.includes(x.value)
+    (x) => x.type === "verb" && !nounData.goesWith?.includes(x.value)
   ); // notice the !
   if (verbs.length === 0) {
     return "";
