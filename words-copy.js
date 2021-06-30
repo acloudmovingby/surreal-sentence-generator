@@ -1,4 +1,4 @@
-const wrds = [
+const defaultWords2 = [
   {
     value: "wizard",
     type: "noun",
@@ -95,14 +95,7 @@ const wrds = [
   {
     value: "saw",
     type: "verb",
-    goesWith: [
-      "cheeseburger",
-      "wizard",
-      "programmer",
-      "friend",
-      "duck",
-      "knave",
-    ],
+    goesWith: ["cheeseburger", "wizard", "programmer", "friend", "duck", "knave"],
   },
   //
   {
@@ -127,6 +120,11 @@ const wrds = [
     value: "friend",
     type: "noun",
     goesWith: ["tossed", "cooked", "saw"],
+  },
+  {
+    value: "apple",
+    type: "noun",
+    goesWith: [],
   },
   {
     value: "clerk",
@@ -264,118 +262,6 @@ const wrds = [
     type: "adjective",
     goesWith: [],
   },
-  {
-    value: "up-and-coming",
-    type: "adjective",
-    goesWith: [
-      "wizard",
-      "programmer",
-      "friend",
-      "doctor",
-      "clerk",
-      "shaman",
-      "doctor",
-    ],
-  },
-  {
-    value: "liquid",
-    type: "adjective",
-    goesWith: [],
-  },
-  {
-    value: "disintegrated",
-    type: "verb",
-    goesWith: [],
-  },
-  {
-    value: "evaporated into",
-    type: "verb",
-    goesWith: [],
-  },
-  {
-    value: "melted into",
-    type: "verb",
-    goesWith: [],
-  },
-  {
-    value: "harmonized with",
-    type: "verb",
-    goesWith: [
-      "wizard",
-      "programmer",
-      "friend",
-      "knave",
-      "doctor",
-      "clerk",
-      "shaman",
-      "doctor",
-    ],
-  },
-  {
-    value: "broke",
-    type: "adjective",
-    goesWith: [
-      "wizard",
-      "programmer",
-      "friend",
-      "knave",
-      "doctor",
-      "clerk",
-      "shaman",
-      "doctor",
-      "cowboy",
-    ],
-  },
-  {
-    value: "flirty",
-    type: "adjective",
-    goesWith: [
-      "wizard",
-      "programmer",
-      "friend",
-      "knave",
-      "doctor",
-      "clerk",
-      "shaman",
-      "doctor",
-      "cowboy",
-    ],
-  },
-  {
-    value: "capable",
-    type: "adjective",
-    goesWith: [
-      "wizard",
-      "programmer",
-      "friend",
-      "knave",
-      "doctor",
-      "clerk",
-      "shaman",
-      "doctor",
-      "cowboy",
-    ],
-  },
-  {
-    value: "greasy",
-    type: "adjective",
-    goesWith: ["cheeseburger"],
-  },
-  {
-    value: "gallant",
-    type: "adjective",
-    goesWith: [
-      "wizard",
-      "programmer",
-      "friend",
-      "knave",
-      "doctor",
-      "clerk",
-      "shaman",
-      "doctor",
-      "cowboy",
-    ],
-  },
 ];
 
-module.exports = { wrds };
+module.exports = { defaultWords2 };
