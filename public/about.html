@@ -48,16 +48,22 @@
         <p class="paragraph">
           This is just a toy site so the sentences are very simple and the
           vocabulary set is small, but in theory you could build a richer and
-          more expressive language generators using similar principles. More
-          sophisticated adjustments might mean weighting edges or even adding
-          broader context weighting (e.g. if the doctor is "angry", then make
-          there should be a higher likelihood of the verb being "yell").
+          more expressive language generators using similar principles. Here are more sophisticated features:
+          <ul>
+            <li>Adding
+              broader context weighting (e.g. if the doctor is "angry", then make
+              there should be a higher likelihood of the verb being "yell").</li>
+              <li>Allow broader inflection of tense and demonstratives ("a"/"the")</li>
+              <li>Adjust word graph based on user-feedback. The user could indicate that a sentence isn't normal or surreal enough and you could then adjust the word graph server-side.</li>
+          </ul>
         </p>
         <h2>What did you use to make this?</h2>
         <p class="paragraph">I used the following technologies:</p>
         <ul>
           <li>UI design in Figma</li>
-          <li>Website all in HTML/CSS, no JS</li>
+          <li>Client-side is all HTML/CSS.</li>
+          <li>Server-side, I used EJS as a Javascript templating to inject data into html pages.</li>
+          <li>Built the server using Express in Node.js</li>
           <li>
             Tested endpoints with Postman (let me know if they don't work!)
           </li>
