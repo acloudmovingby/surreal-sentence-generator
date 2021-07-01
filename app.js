@@ -8,7 +8,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 /** DATABASE (MONGODB) */
-mongoose.connect("mongodb://localhost:27017/surreal-app", {
+mongoose.connect("mongodb+srv://admin-chris:" + process.env.MONGO_PASSWORD + "@cluster0.ve0mo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
