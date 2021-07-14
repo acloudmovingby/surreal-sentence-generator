@@ -1,4 +1,7 @@
 # surreal-sentence-generator
+
+Website is live here: https://surreal-sentence-generator.herokuapp.com/
+
 This was a small Node Express project to create a basic REST API to generate either "normal" or "surreal" sentences. This is a joke site. While perhaps thought-provoking, it is not meant to be a serious source of randomly generated language. 
 
 ## What is a "surreal" sentence?
